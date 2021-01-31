@@ -2,3 +2,20 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+body {
+  color: white;
+  background-image: linear-gradient(to left, #8cdad0, #26526b, #041782);
+  background-size: 300%;
+  background-position: left;
+  animation: bg-animation 10s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
