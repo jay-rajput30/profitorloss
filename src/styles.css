@@ -1,19 +1,29 @@
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: sans-serif;
   text-align: center;
-}
-
-body {
-  font-family: "Segoe UI";
-  color: white;
+  height: 100vh;
+  border: 2px solid orange;
+  width: 100vw;
   background-image: linear-gradient(to left, #8cdad0, #26526b, #041782);
   background-size: 300%;
   background-position: left;
   animation: bg-animation 10s infinite alternate;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  font-family: "Segoe UI";
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 @keyframes bg-animation {
@@ -29,6 +39,7 @@ h1 {
   text-transform: uppercase;
   position: fixed;
   top: 0;
+  padding: 2rem;
 }
 
 .stock-values {
@@ -56,19 +67,21 @@ input[type] {
 .input-field {
   position: relative;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
 
 input:invalid {
   border: 2px solid red;
+  background-color: pink;
 }
 
 input:focus:valid {
   border: 2px solid green;
+  background-color: lightgreen;
 }
 button {
-  margin-top: 1rem;
+  margin: 1rem;
   font-size: 1.2rem;
   padding: 0.5rem;
   outline: none;
@@ -77,4 +90,9 @@ button {
   font-family: inherit;
   border: 2px solid white;
   border-radius: 10px;
+}
+
+h4 {
+  text-transform: uppercase;
+  font-size: 1.3rem;
 }
