@@ -13,6 +13,12 @@
   animation: bg-animation 10s infinite alternate;
 }
 
+.App:has main.profit {
+  background-image: linear-gradient(to left, #da958c, #da958c, #da958c);
+  background-size: 300%;
+  background-position: left;
+  animation: bg-animation 10s infinite alternate;
+}
 * {
   padding: 0;
   box-sizing: border-box;

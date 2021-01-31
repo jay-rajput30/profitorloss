@@ -21,10 +21,12 @@ export default function App() {
   }
 
   function calculateResult() {
-    if (current * total > original) {
-      setResult("You made a profit...congratulations!");
+    if (total > original) {
+      setResult(
+        `You made a profit of Rs. ${total - original}...congratulations!`
+      );
     } else {
-      setResult("Oh no...you are in a loss!");
+      setResult(`Oh no...you are in a loss of Rs. ${original - total}`);
     }
   }
   return (
