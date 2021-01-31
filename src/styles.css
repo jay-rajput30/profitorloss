@@ -4,11 +4,16 @@
 }
 
 body {
+  font-family: "Segoe UI";
   color: white;
   background-image: linear-gradient(to left, #8cdad0, #26526b, #041782);
   background-size: 300%;
   background-position: left;
   animation: bg-animation 10s infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 @keyframes bg-animation {
@@ -18,4 +23,58 @@ body {
   100% {
     background-position: right;
   }
+}
+
+h1 {
+  text-transform: uppercase;
+  position: fixed;
+  top: 0;
+}
+
+.stock-values {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+input[type] {
+  /* position: absolute; */
+  margin: 0.5rem;
+  background-color: rgb(83, 210, 214);
+  outline: none;
+  border: 0;
+  text-align: center;
+  padding: 0.3rem;
+  caret-color: blue;
+}
+
+.input-field {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+
+input:focus:valid {
+  border: 2px solid green;
+}
+button {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  outline: none;
+  background-color: rgb(83, 210, 214);
+  color: white;
+  font-family: inherit;
+  border: 2px solid white;
+  border-radius: 10px;
 }
