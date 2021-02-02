@@ -1,20 +1,47 @@
 .App {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
   text-align: center;
   height: 100vh;
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   width: 100vw;
+  color: black;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  display: grid;
+  place-items: center;
+}
+main {
+  display: flex;
+  font-weight: 700;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.438);
   background-image: linear-gradient(to left, #8cdad0, #26526b, #041782);
+  background-size: 300%;
+  background-position: left;
+  animation: bg-animation 10s infinite alternate;
+  padding: 2rem;
+  height: 60%;
+  width: 75%;
+  border-radius: 7px;
+}
+main.profit {
+  background-image: linear-gradient(to left, #099220, #5abb6a, #80a587);
   background-size: 300%;
   background-position: left;
   animation: bg-animation 10s infinite alternate;
 }
 
-.App:has main.profit {
-  background-image: linear-gradient(to left, #da958c, #da958c, #da958c);
+main.loss {
+  background-image: linear-gradient(to left, #bc0c0c, #d87070, #e2b8b2);
   background-size: 300%;
   background-position: left;
   animation: bg-animation 10s infinite alternate;
@@ -43,7 +70,7 @@ body {
 
 h1 {
   text-transform: uppercase;
-  position: fixed;
+
   top: 0;
   padding: 2rem;
 }
@@ -62,7 +89,7 @@ label {
 input[type] {
   /* position: absolute; */
   margin: 0.5rem;
-  background-color: rgb(83, 210, 214);
+  background-color: rgba(255, 255, 255, 0.348);
   outline: none;
   border: 0;
   text-align: center;
@@ -91,14 +118,19 @@ button {
   font-size: 1.2rem;
   padding: 0.5rem;
   outline: none;
-  background-color: rgb(83, 210, 214);
+  background-color: rgba(255, 255, 255, 0.348);
   color: white;
   font-family: inherit;
-  border: 2px solid white;
+  border: 2px solid rgba(255, 255, 255, 0.348);
   border-radius: 10px;
+  transition: transform 0.3s linear;
 }
 
+button:active {
+  transform: scale(0.96);
+}
 h4 {
   text-transform: uppercase;
   font-size: 1.3rem;
+  width: 100%;
 }

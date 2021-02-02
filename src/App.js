@@ -2,31 +2,37 @@ import React, { useState } from "react";
 import "./styles.css";
 
 export default function App() {
-  let [current, setCurrent] = useState();
-  let [total, setTotal] = useState();
-  let [original, setOriginal] = useState();
+  let [current, setCurrent] = useState(0);
+  let [count, setCount] = useState(0);
+  let [total, setTotal] = useState(0);
+  let [original, setOriginal] = useState(0);
   let [result, setResult] = useState();
+  let [outcome, setOutcome] = useState("");
 
   function currentPriceHandler(e) {
     // console.log(e.target.value);
     setCurrent(e.target.value);
     console.log(current);
   }
-  function stockAmountHandler(e) {
-    let amount = e.target.value * current;
-    setTotal(amount);
+  function stockCountHandler(e) {
+    setCount(e.target.value);
+    let currentAmount = e.target.value * current;
+    setTotal(currentAmount);
   }
   function originalPriceHandler(e) {
-    setOriginal(e.target.value);
+    setOriginal(e.target.value * count);
+    console.log(original);
   }
 
   function calculateResult() {
-    if (total > original) {
+    if (total >= original) {
       setResult(
         `You made a profit of Rs. ${total - original}...congratulations!`
       );
+      setOutcome("profit");
     } else {
       setResult(`Oh no...you are in a loss of Rs. ${original - total}`);
+      setOutcome("loss");
     }
   }
   return (
@@ -35,7 +41,7 @@ export default function App() {
         <h1>profit or loss</h1>
       </header>
 
-      <main className={current * total > original ? "profit" : "loss"}>
+      <main className={outcome}>
         <div class="stock-values">
           <div class="input-field">
             <input
@@ -48,7 +54,7 @@ export default function App() {
           </div>
           <div class="input-field">
             <input
-              onChange={stockAmountHandler}
+              onChange={stockCountHandler}
               type="number"
               class="count"
               id="count"
