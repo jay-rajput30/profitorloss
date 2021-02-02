@@ -4,7 +4,7 @@ import "./styles.css";
 export default function App() {
   let [current, setCurrent] = useState(0);
   let [count, setCount] = useState(0);
-  let [total, setTotal] = useState(0);
+  let [currenttotal, setCurrentTotal] = useState(0);
   let [original, setOriginal] = useState(0);
   let [result, setResult] = useState();
   let [outcome, setOutcome] = useState("");
@@ -17,21 +17,29 @@ export default function App() {
   function stockCountHandler(e) {
     setCount(e.target.value);
     let currentAmount = e.target.value * current;
-    setTotal(currentAmount);
+    setCurrentTotal(currentAmount);
   }
   function originalPriceHandler(e) {
     setOriginal(e.target.value * count);
-    console.log(original);
   }
 
   function calculateResult() {
-    if (total >= original && total > 0 && original > 0) {
+    let percent = 0;
+    if (currenttotal >= original && currenttotal > 0 && original > 0) {
+      percent = Math.floor((currenttotal / original) * 100);
       setResult(
-        `You made a profit of Rs. ${total - original}...congratulations!`
+        `You made a profit of Rs. ${
+          currenttotal - original
+        } that's ${percent}%...congratulations!`
       );
       setOutcome("profit");
     } else {
-      setResult(`Oh no...you are in a loss of Rs. ${original - total}`);
+      percent = Math.floor((original / currenttotal) * 100);
+      setResult(
+        `Oh no...you are in a loss of Rs. ${
+          original - currenttotal
+        } that's ${percent}%`
+      );
       setOutcome("loss");
     }
   }
