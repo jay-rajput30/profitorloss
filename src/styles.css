@@ -86,7 +86,7 @@ label {
   font-size: 1.2rem;
 }
 
-input[type] {
+input[type="number"] {
   /* position: absolute; */
   margin: 0.5rem;
   background-color: rgba(255, 255, 255, 0.348);
@@ -95,8 +95,16 @@ input[type] {
   text-align: center;
   padding: 0.3rem;
   caret-color: blue;
+  -moz-appearance: textfield;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
 .input-field {
   position: relative;
   display: flex;
