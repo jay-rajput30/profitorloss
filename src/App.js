@@ -25,7 +25,7 @@ export default function App() {
   }
 
   function calculateResult() {
-    if (total >= original) {
+    if (total >= original && total > 0 && original > 0) {
       setResult(
         `You made a profit of Rs. ${total - original}...congratulations!`
       );
